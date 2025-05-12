@@ -1,0 +1,40 @@
+1. La etiqueta <Navigation /> que aparece en el componente App no es nativa de React ni de HTML.
+Sale del propio archivo llamado Navigation.js (o .jsx), y se esta importando con esta línea:
+
+    import { Navigation } from './Navigation'
+
+
+2. El componente Navigation recibe los parámetros srcImg y alt así:
+
+Vienen de cuando se usa el componente en App.jsx:
+
+    <Navigation srcImg={logo} alt="Logo" items={navigationItems} />
+
+Aquí React interpreta eso como si estuvieras pasando un objeto de props al componente.
+Se está usando desestructuración de objetos: se toman solo los valores srcImg y alt del objeto props.
+
+
+3.1. ¿Dónde se importan los archivos CSS?
+En React, los archivos .css se importan igual que en JavaScript moderno, usando la palabra import.
+
+3.2. ¿Dónde se importan las imágenes?
+También se importan con import, así:
+
+3.3. ¿Cómo se importa un componente?
+Un componente se importa con import y se basa en cómo se exportó
+
+Si lo exportaste así:
+    export function Navigation() { ... }
+
+Lo importas así:
+    import { Navigation } from './Navigation'
+Las llaves {} significan que estás importando una exportación nombrada.
+
+Si lo hubieras exportado así:
+    export default Navigation
+
+Entonces se importa sin llaves:
+    import Navigation from './Navigation'
+
+
+
